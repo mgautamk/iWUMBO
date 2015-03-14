@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context=".SearchActivity">
 
-    <TextView android:text="@string/app_name" android:layout_width="wrap_content"
+    <TextView android:text="@string/create_account" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
@@ -20,7 +20,8 @@
         android:singleLine="true"
         android:lines="1"
         android:maxLines="1"
-        android:scrollHorizontally="true"/>
+        android:scrollHorizontally="true"
+        />
 
     <!-- <TextView android:text="@string/password_prompt" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,6 +50,7 @@
         android:id="@+id/create_button"
         android:text="Create!"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+    />
 
 </LinearLayout>
