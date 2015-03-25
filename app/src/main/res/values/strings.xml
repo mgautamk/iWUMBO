@@ -8,5 +8,10 @@
     <string name="username_input_hint">Username</string>
     <string name="password_input_hint">Password</string>
     <string name="email_input_hint">Email</string>
+    <string name="title_activity_initial_">LIFT!</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_display_create_account">Create Account</string>
+    <string name="title_activity_login">Login</string>
 
 </resources>

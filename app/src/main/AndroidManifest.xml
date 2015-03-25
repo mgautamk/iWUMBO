@@ -8,13 +8,31 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".CreateAccount"
-            android:label="@string/app_name" >
+            android:name=".Activity.Initial_Activity"
+            android:label="@string/title_activity_initial_" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Activity.DisplayCreateAccount"
+            android:label="@string/title_activity_display_create_account"
+            android:parentActivityName=".Activity.Initial_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marco.lift.Activity.Initial_Activity" />
+        </activity>
+
+        <activity
+            android:name=".Activity.Login"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".Activity.Initial_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marco.lift.Activity.Initial_Activity" />
         </activity>
     </application>
 
