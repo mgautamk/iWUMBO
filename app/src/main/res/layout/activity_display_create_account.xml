@@ -23,6 +23,18 @@
         android:scrollHorizontally="true"
         />
 
+    <EditText
+        android:id="@+id/email_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_input_hint"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:lines="1"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
+        />
+
     <!-- <TextView android:text="@string/password_prompt" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/password_prompt" /> -->
@@ -43,25 +55,17 @@
         android:inputType="textPassword"
         />
 
-    <EditText
-        android:id="@+id/email_input"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/email_input_hint"
-        android:singleLine="true"
-        android:lines="1"
-        android:maxLines="1"
-        android:scrollHorizontally="true"
-        />
-
     <TextView
         android:text="\nOptional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:id="@+id/Preferred_Gym_input"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:hint="Preferred Gym"
         />
     <Button
@@ -69,9 +73,13 @@
         android:text="Create!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
     />
 
 
+=======
+        android:onClick="create_account"/>
+>>>>>>> 9cbbf994da07b446fbf006dcce61d51c17e831e2
 
 
 
