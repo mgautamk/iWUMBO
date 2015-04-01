@@ -1,18 +1,50 @@
 package com.example.marco.lift.Activity;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.marco.lift.Interface.IHttpCallbackListener;
+import com.example.marco.lift.Model.UserModel;
 import com.example.marco.lift.R;
+import com.example.marco.lift.Service.UserDataManager;
+import com.example.marco.lift.Service.loginRequestArgs;
+import com.example.marco.lift.Utility.URLFormatUtility;
 
-public class Login extends ActionBarActivity {
-
+public class Login extends Activity implements IHttpCallbackListener {
+    private UserDataManager dataManager;
+    private EditText inputUsername;
+    private EditText inputPassword;
+    private TextView LoginResponse;
+    private Button loginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        inputUsername = (EditText)findViewById(R.id.username_login);
+        inputPassword = (EditText)findViewById(R.id.password_login);
+        loginButton = (Button)findViewById(R.id.login);
+        LoginResponse = (TextView)findViewById(R.id.LoginResponse);
+
+        loginButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                dataManager = new UserDataManager();
+                loginRequestArgs args = new loginRequestArgs();
+                args.setUrl(URLFormatUtility.formatApiUrl(inputUsername.getText().toString()));
+                args.setUrl(URLFormatUtility.formatApiUrl(inputPassword.getText().toString()));
+                args.setListener(Login.this);
+                dataManager.execute(args);
+            }
+        });
     }
 
 
@@ -37,4 +69,22 @@ public class Login extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onUserCallback(UserModel model){
+        String Username = model.getUsername();
+        String Password = model.getPassword();
+        String inputUser = inputUsername.getText().toString();
+        String inputPass = inputPassword.getText().toString();
+        if ( (inputUser.equals(Username)) &&
+                (inputPass.equals(Password)) )
+        {
+            LoginResponse.setText("Successful login!");
+        }
+        else
+        {
+            LoginResponse.setText(Username + ' ' + Password + " : " + inputUser + ' ' + inputPass);
+        }
+     }
 }
+
