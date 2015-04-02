@@ -73,13 +73,8 @@
         android:text="Create!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-    />
-
-
-=======
-        android:onClick="create_account"/>
->>>>>>> 9cbbf994da07b446fbf006dcce61d51c17e831e2
+        android:onClick="create_account"
+        />
 
 
 

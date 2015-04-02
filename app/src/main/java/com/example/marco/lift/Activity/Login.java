@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.marco.lift.Interface.IHttpCallbackListener;
+import com.example.marco.lift.Model.GymSearchModel;
 import com.example.marco.lift.Model.UserModel;
 import com.example.marco.lift.R;
 import com.example.marco.lift.Service.UserDataManager;
@@ -70,9 +71,6 @@ public class Login extends Activity implements IHttpCallbackListener {
         return super.onOptionsItemSelected(item);
     }
 
-<<<<<<< HEAD
-
-=======
     @Override
     public void onUserCallback(UserModel model){
         String Username = model.getUsername();
@@ -89,6 +87,10 @@ public class Login extends Activity implements IHttpCallbackListener {
             LoginResponse.setText(Username + ' ' + Password + " : " + inputUser + ' ' + inputPass);
         }
      }
->>>>>>> 9cbbf994da07b446fbf006dcce61d51c17e831e2
+
+    @Override
+    public void onGymCallback(GymSearchModel model){
+        System.out.print("--------------- onGymCallBack function is empty ---------------");
+    }
 }
 
