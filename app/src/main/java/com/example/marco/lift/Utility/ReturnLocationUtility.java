@@ -18,9 +18,7 @@ package com.example.marco.lift.Utility;
         import com.google.android.gms.location.LocationRequest;
         import com.google.android.gms.location.LocationServices;
 
-/**
- * Created by Mahesh .
- */
+
 public class ReturnLocationUtility implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
@@ -34,7 +32,7 @@ public class ReturnLocationUtility implements
 
     /*
      * Define a request code to send to Google Play services
-     * This code is returned in Activity.onActivityResult
+     *
      */
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 

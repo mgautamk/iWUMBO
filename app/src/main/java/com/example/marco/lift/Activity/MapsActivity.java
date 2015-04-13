@@ -5,7 +5,7 @@ package com.example.marco.lift.Activity;
         import android.os.Bundle;
         import android.support.v4.app.FragmentActivity;
         import android.util.Log;
-
+        //import android.*;
         import com.example.marco.lift.R;
         import com.example.marco.lift.Utility.ReturnLocationUtility;
         import com.google.android.gms.maps.CameraUpdateFactory;
