@@ -15,5 +15,7 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_create_account">create_account</string>
     <string name="title_activity_maps">Map</string>
+    <string name="lift_logo">liftLogo.png</string>
+    <string name="logo">logo</string>
 
 </resources>
