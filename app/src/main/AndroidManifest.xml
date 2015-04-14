@@ -58,5 +58,8 @@
             android:protectionLevel="signature" />
         <uses-permission android:name="com.example.marco.lift.permission.MAPS_RECEIVE" />
     </application>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
 
 </manifest>

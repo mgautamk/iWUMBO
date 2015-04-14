@@ -8,6 +8,7 @@
     tools:context="com.example.marco.lift.Activity.Initial_Activity">
      <!-- android:id="@+id/"-->
 
+    <!--
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/logo" />
+        -->
 
     <Button
         android:layout_width="wrap_content"
