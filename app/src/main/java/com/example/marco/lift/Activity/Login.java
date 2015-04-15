@@ -1,6 +1,8 @@
 package com.example.marco.lift.Activity;
 
 import android.app.Activity;
+//import android.location.Location;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,18 +17,24 @@ import javax.crypto.*;
 
 
 import com.example.marco.lift.Interface.IHttpCallbackListener;
+import com.example.marco.lift.Model.LocationModel;
+//import com.example.marco.lift.Utility.ReturnLocation;
 import com.example.marco.lift.Model.GymSearchModel;
 import com.example.marco.lift.Model.UserModel;
 import com.example.marco.lift.R;
 import com.example.marco.lift.Service.UserDataManager;
 import com.example.marco.lift.Service.loginRequestArgs;
+//import com.example.marco.lift.Utility.ReturnLocation;
 import com.example.marco.lift.Utility.URLFormatUtility;
 
 public class Login extends Activity implements IHttpCallbackListener {
+    public LocationModel locate;
+    private String LatLong;
     private UserDataManager dataManager;
     private EditText inputUsername;
     private EditText inputPassword;
     private TextView LoginResponse;
+    private TextView LocationResponse;
     private Button loginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +45,18 @@ public class Login extends Activity implements IHttpCallbackListener {
         inputPassword = (EditText)findViewById(R.id.password_login);
         loginButton = (Button)findViewById(R.id.login);
         LoginResponse = (TextView)findViewById(R.id.LoginResponse);
+        LocationResponse = (TextView)findViewById(R.id.LocationResponse);
 
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 dataManager = new UserDataManager();
                 loginRequestArgs args = new loginRequestArgs();
+               // locate = new LocationModel();
+              //  ReturnLocation location = new ReturnLocation();
+                //location.onConnected(Bundle.EMPTY);
+                //ReturnLocation location = new ReturnLocation();
+                //LatLong = location.onConnected();
                 args.setUrl(URLFormatUtility.formatApiUrl(inputUsername.getText().toString()));
                 args.setUrl(URLFormatUtility.formatApiUrl(inputPassword.getText().toString()));
                 args.setListener(Login.this);
@@ -83,7 +97,9 @@ public class Login extends Activity implements IHttpCallbackListener {
         if ( (inputUser.equals(Username)) &&
                 (inputPass.equals(Password)) )
         {
-            LoginResponse.setText("Successful login!");
+         //   LoginResponse.setText("sad OR Happy face");
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
         }
         else
         {
