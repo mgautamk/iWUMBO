@@ -77,7 +77,7 @@ public class DisplayCreateAccount extends ActionBarActivity {
                 }
                 else{
 
-                    
+
                     JSONObjectRequest rq = new JSONObjectRequest(Request.Method.POST, url, null,
                             new Response.Listener<JSONObject>() {
                                 @Override
