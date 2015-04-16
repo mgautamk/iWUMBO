@@ -32,7 +32,6 @@ public class UserDataManager extends AsyncTask<loginRequestArgs, String, UserMod
         catch(Exception exception){}
 
         UserModel model = UserParser.JSONtoModel(response);
-
         return model;
     }
     @Override

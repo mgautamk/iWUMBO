@@ -11,4 +11,7 @@ public class URLFormatUtility {
         String urlString = String.format(BASE_URL, param);
         return urlString;
     }
+    static public final String submitAccount(){
+        return BASE_URL + "user/create";
+    }
 }

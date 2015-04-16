@@ -75,7 +75,7 @@
         android:text="Create!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="create_account"
+        android:onClick="sendAccount"
         />
     <TextView
         android:layout_width="wrap_content"

@@ -90,8 +90,8 @@ public class Login extends Activity implements IHttpCallbackListener {
 
     @Override
     public void onUserCallback(UserModel model){
-        String Username = model.getUsername();
-        String Password = model.getPassword();
+        String Username = model.Username;
+        String Password = model.Password;
         String inputUser = inputUsername.getText().toString();
         String inputPass = inputPassword.getText().toString();
         if ( (inputUser.equals(Username)) &&
