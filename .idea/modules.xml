@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/CS370APPPP.iml" filepath="$PROJECT_DIR$/CS370APPPP.iml" />
+=======
+>>>>>>> 6f290907271162332807252033e5edf3b724a889
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/iWUMBO.iml" filepath="$PROJECT_DIR$/iWUMBO.iml" />
       <module fileurl="file://$PROJECT_DIR$/volley/volley.iml" filepath="$PROJECT_DIR$/volley/volley.iml" />
+=======
+>>>>>>> 91250acb706f559070bb4c573fd9469fb9a49730
     </modules>
   </component>
 </project>

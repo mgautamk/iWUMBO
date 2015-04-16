@@ -14,8 +14,13 @@
     <string name="title_activity_display_create_account">Create Account</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_create_account">create_account</string>
+    <string name="registered">You have been registered succesfuly.</string>
+    <string name="email_exists">Your e-mail is already taken. Please enter another e-mail.</string>
+    <string name="username_exists">Your username is already taken. Please enter another username.</string>
+    <string name="invalid_post">Something went wrong.Please try again..</string>
     <string name="title_activity_maps">Map</string>
     <string name="lift_logo">liftLogo.png</string>
     <string name="logo">logo</string>
+
 
 </resources>

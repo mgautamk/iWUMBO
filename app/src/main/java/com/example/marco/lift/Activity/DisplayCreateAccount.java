@@ -3,6 +3,9 @@ package com.example.marco.lift.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,8 +47,9 @@ public class DisplayCreateAccount extends ActionBarActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_display_create_account);
-
         inputUsername = (EditText) findViewById(R.id.username_input);
         inputPassword = (EditText) findViewById(R.id.password_input);
         inputConfirm = (EditText) findViewById(R.id.confirm_password_input);
@@ -72,16 +76,10 @@ public class DisplayCreateAccount extends ActionBarActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // TODO Auto-generated method stub
+        if (android.R.id.home == item.getItemId()) {
+            finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -126,6 +124,5 @@ public class DisplayCreateAccount extends ActionBarActivity{
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }
-
 
 }
