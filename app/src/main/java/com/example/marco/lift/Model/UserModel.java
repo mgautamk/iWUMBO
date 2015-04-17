@@ -1,6 +1,7 @@
 package com.example.marco.lift.Model;
 
 import java.net.URI;
+import java.security.Timestamp;
 
 /**
  * Created by kting_000 on 3/12/2015.
@@ -8,10 +9,11 @@ import java.net.URI;
 public class UserModel {
     private int UserID;
     public String Username;
-    public float Rating;
-    public URI ProfilePicture;
+    //public float Rating;
+    //public URI ProfilePicture;
     public String Password;
     public String Email;
     public String PreferredGym;
+    public Timestamp DateCreated;
 
 }

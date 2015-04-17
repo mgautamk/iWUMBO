@@ -15,6 +15,16 @@ import android.widget.TextView;
 import android.util.Base64;
 import javax.crypto.*;
 
+import android.util.Log;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+
 
 import com.example.marco.lift.Interface.IHttpCallbackListener;
 import com.example.marco.lift.Model.LocationModel;
@@ -26,8 +36,12 @@ import com.example.marco.lift.Service.UserDataManager;
 import com.example.marco.lift.Service.loginRequestArgs;
 //import com.example.marco.lift.Utility.ReturnLocation;
 import com.example.marco.lift.Utility.URLFormatUtility;
+import com.example.marco.lift.Utility.VolleyQueue;
+import com.google.gson.GsonBuilder;
 
-public class Login extends Activity implements IHttpCallbackListener {
+import org.json.JSONException;
+
+public class Login extends Activity {
     public LocationModel locate;
     private String LatLong;
     private UserDataManager dataManager;
@@ -46,7 +60,7 @@ public class Login extends Activity implements IHttpCallbackListener {
         loginButton = (Button)findViewById(R.id.login);
         LoginResponse = (TextView)findViewById(R.id.LoginResponse);
         LocationResponse = (TextView)findViewById(R.id.LocationResponse);
-
+/*
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -57,12 +71,11 @@ public class Login extends Activity implements IHttpCallbackListener {
                 //location.onConnected(Bundle.EMPTY);
                 //ReturnLocation location = new ReturnLocation();
                 //LatLong = location.onConnected();
-                args.setUrl(URLFormatUtility.formatApiUrl(inputUsername.getText().toString()));
-                args.setUrl(URLFormatUtility.formatApiUrl(inputPassword.getText().toString()));
-                args.setListener(Login.this);
-                dataManager.execute(args);
+                //args.setUrl(URLFormatUtility.formatApiUrl(inputUsername.getText().toString()));
+                //args.setUrl(URLFormatUtility.formatApiUrl(inputPassword.getText().toString()));
+                //dataManager.execute(args);
             }
-        });
+        });*/
     }
 
 
@@ -88,6 +101,48 @@ public class Login extends Activity implements IHttpCallbackListener {
         return super.onOptionsItemSelected(item);
     }
 
+    public void validLogin(UserModel u, String Username, String Password){
+        //Parcelable if you want to send model to the new activity
+        if (u.Username.equals(Username) && u.Password.equals(Password)){
+            Intent intent = new Intent(this, MapsActivity.class);
+            startActivity(intent);
+        }
+        else{
+            LoginResponse.setText("Invalid Login");
+        }
+
+    }
+
+    public void sendLogin(View v){
+        Log.d("Login Start up", "sendLogin opened");
+        final String Username = inputUsername.getText().toString();
+        final String Password = inputPassword.getText().toString();
+        String url = URLFormatUtility.loginAccount(Username);
+        Log.d("URL", url);
+            Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+
+                    Log.d("OP_SUBMISSION", "success?");
+                    UserModel u = new GsonBuilder().create().fromJson(response.json, UserModel.class);
+                    Log.d("JSON", response.toString());
+                    validLogin(u, Username, Password);
+                }
+            };
+            Response.ErrorListener errorListener = new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("OP_SUBMISSION", "JSON FAIL");
+                    Log.d("SERVER_ERROR", error.toString());
+
+                }
+            };
+            Log.d("URL", url);
+            JsonObjectRequest request = new JsonObjectRequest(url, null, responseListener, errorListener);
+            VolleyQueue.getRequestQueue(getApplicationContext()).add(request);
+
+    }
+    /*
     @Override
     public void onUserCallback(UserModel model){
         String Username = model.Username;
@@ -111,5 +166,6 @@ public class Login extends Activity implements IHttpCallbackListener {
     public void onGymCallback(GymSearchModel model){
         System.out.print("--------------- onGymCallBack function is empty ---------------");
     }
+    */
 }
 

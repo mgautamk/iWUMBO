@@ -15,7 +15,7 @@ public class URLFormatUtility {
         return BASE_URL + "user/create";
     }
 
-    //static public final String loginAccount(String Username, String Password){
-    //
-    // }
+    static public final String loginAccount(String Username){
+        return BASE_URL + "user/login?Username=" + Username;
+    }
 }

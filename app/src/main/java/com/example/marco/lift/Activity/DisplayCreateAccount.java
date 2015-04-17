@@ -105,6 +105,7 @@ public class DisplayCreateAccount extends ActionBarActivity{
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("OP_SUBMISSION", "JSON FAIL");
+                        Log.d("SERVER_ERROR", error.toString());
 
                     }
                 };
@@ -121,7 +122,7 @@ public class DisplayCreateAccount extends ActionBarActivity{
             }
 
 
-            Intent i = new Intent(getApplicationContext(), Initial_Activity.class);
+            Intent i = new Intent(getApplicationContext(), Login.class);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
         }
