@@ -124,7 +124,8 @@ public class Login extends Activity {
                 public void onResponse(JSONObject response) {
 
                     Log.d("OP_SUBMISSION", "success?");
-                    UserModel u = new GsonBuilder().create().fromJson(response.json, UserModel.class);
+                    //Find way use fromJson with jsonObject
+                    UserModel u = new GsonBuilder().create().fromJson(response.toString(), UserModel.class);
                     Log.d("JSON", response.toString());
                     validLogin(u, Username, Password);
                 }
