@@ -84,45 +84,50 @@ public class DisplayCreateAccount extends ActionBarActivity{
     }
 
     public void sendAccount(View v) {
-        UserModel u = new UserModel();
-        u.Username = inputUsername.getText().toString();
-        u.Password = inputPassword.getText().toString();
-        u.Email = inputEmail.getText().toString();
-        u.PreferredGym = inputGym.getText().toString();
-        try {
-            JSONObject submission = new JSONObject(new GsonBuilder().create().toJson(u));
+        if((inputPassword.getText().toString()).equals(inputConfirm.getText().toString())) {
+            UserModel u = new UserModel();
+            u.Username = inputUsername.getText().toString();
+            u.Password = inputPassword.getText().toString();
+            u.Email = inputEmail.getText().toString();
+            u.PreferredGym = inputGym.getText().toString();
+            try {
+                JSONObject submission = new JSONObject(new GsonBuilder().create().toJson(u));
 
-            Log.d("OP_STRING", submission.toString());
-            Log.d("JSON", "FORMING REQUEST");
-            Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    Log.d("OP_SUBMISSION", "success?");
-                }
-            };
-            Response.ErrorListener errorListener = new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.d("OP_SUBMISSION", "JSON FAIL");
+                Log.d("OP_STRING", submission.toString());
+                Log.d("JSON", "FORMING REQUEST");
+                Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("OP_SUBMISSION", "success?");
+                    }
+                };
+                Response.ErrorListener errorListener = new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("OP_SUBMISSION", "JSON FAIL");
 
-                }
-            };
+                    }
+                };
 
-            String url = URLFormatUtility.submitAccount();
+                String url = URLFormatUtility.submitAccount();
 
-            JsonObjectRequest request = new JsonObjectRequest(url, submission, responseListener, errorListener);
-            VolleyQueue.getRequestQueue(getApplicationContext()).add(request);
-            Log.d("JSON", submission.toString());
-            Log.d("URL", url.toString());
+                JsonObjectRequest request = new JsonObjectRequest(url, submission, responseListener, errorListener);
+                VolleyQueue.getRequestQueue(getApplicationContext()).add(request);
+                Log.d("JSON", submission.toString());
+                Log.d("URL", url.toString());
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            Intent i = new Intent(getApplicationContext(), Initial_Activity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
         }
-
-
-        Intent i = new Intent(getApplicationContext(), Initial_Activity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
+        else{
+            Response.setText("Passwords do not match...");
+        }
     }
 
 }
