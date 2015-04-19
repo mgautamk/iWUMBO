@@ -38,6 +38,8 @@ import com.example.marco.lift.Service.loginRequestArgs;
 import com.example.marco.lift.Utility.URLFormatUtility;
 import com.example.marco.lift.Utility.VolleyQueue;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 
@@ -119,14 +121,16 @@ public class Login extends Activity {
         final String Password = inputPassword.getText().toString();
         String url = URLFormatUtility.loginAccount(Username);
         Log.d("URL", url);
-            Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+            Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>(){
                 @Override
                 public void onResponse(JSONObject response) {
-
+                    //JSONObject profile = new JSONObject(response);
                     Log.d("OP_SUBMISSION", "success?");
                     //Find way use fromJson with jsonObject
-                    UserModel u = new GsonBuilder().create().fromJson(response.toString(), UserModel.class);
+                    JsonParser parser = new JsonParser();
+                    JsonObject obj = parser.parse(response.toString()).getAsJsonObject();
                     Log.d("JSON", response.toString());
+                    UserModel u = new GsonBuilder().create().fromJson(obj.get("profile"), UserModel.class);
                     validLogin(u, Username, Password);
                 }
             };
@@ -139,7 +143,7 @@ public class Login extends Activity {
                 }
             };
             Log.d("URL", url);
-            JsonObjectRequest request = new JsonObjectRequest(url, null, responseListener, errorListener);
+            JsonObjectRequest request = new JsonObjectRequest(url,null, responseListener, errorListener);
             VolleyQueue.getRequestQueue(getApplicationContext()).add(request);
 
     }
