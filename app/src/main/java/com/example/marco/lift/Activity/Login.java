@@ -130,7 +130,7 @@ public class Login extends Activity {
                     JsonParser parser = new JsonParser();
                     JsonObject obj = parser.parse(response.toString()).getAsJsonObject();
                     Log.d("JSON", response.toString());
-                    UserModel u = new GsonBuilder().create().fromJson(obj.get("profile"), UserModel.class);
+                    UserModel u = new GsonBuilder().create().fromJson(obj, UserModel.class);
                     validLogin(u, Username, Password);
                 }
             };
