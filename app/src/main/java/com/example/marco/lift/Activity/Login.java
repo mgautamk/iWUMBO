@@ -37,6 +37,7 @@ import com.example.marco.lift.Service.loginRequestArgs;
 //import com.example.marco.lift.Utility.ReturnLocation;
 import com.example.marco.lift.Utility.URLFormatUtility;
 import com.example.marco.lift.Utility.VolleyQueue;
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -127,11 +128,13 @@ public class Login extends Activity {
                     //JSONObject profile = new JSONObject(response);
                     Log.d("OP_SUBMISSION", "success?");
                     //Find way use fromJson with jsonObject
-                    JsonParser parser = new JsonParser();
-                    JsonObject obj = parser.parse(response.toString()).getAsJsonObject();
+//                    JsonParser parser = new JsonParser();
+//                    JsonObject obj = parser.parse(response.toString()).getAsJsonObject();
                     Log.d("JSON", response.toString());
-                    UserModel u = new GsonBuilder().create().fromJson(obj, UserModel.class);
-                    validLogin(u, Username, Password);
+//                    UserModel u = new GsonBuilder().create().fromJson(obj, UserModel.class);
+                    Gson gson = new Gson();
+                    UserModel model = gson.fromJson(response.toString(), UserModel.class);
+                    validLogin(model, Username, Password);
                 }
             };
             Response.ErrorListener errorListener = new Response.ErrorListener() {
