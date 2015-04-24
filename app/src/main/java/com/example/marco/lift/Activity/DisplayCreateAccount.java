@@ -21,11 +21,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.marco.lift.R;
 
 import com.example.marco.lift.Interface.IHttpCallbackListener;
 import com.example.marco.lift.Model.GymSearchModel;
 import com.example.marco.lift.Model.UserModel;
-import com.example.marco.lift.R;
 import com.example.marco.lift.Service.UserDataManager;
 import com.example.marco.lift.Service.loginRequestArgs;
 import com.example.marco.lift.Utility.URLFormatUtility;

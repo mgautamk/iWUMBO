@@ -40,6 +40,14 @@
                 android:value="com.example.marco.lift.Activity.Initial_Activity" />
         </activity>
 
+        <activity android:name=".Activity.HttpTestActivity"
+            android:label="HttpTestActivity"
+            android:parentActivityName=".Activity.Initial_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.marco.lift.Activity.Initial_Activity" />
+
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

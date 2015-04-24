@@ -107,7 +107,7 @@ public class Login extends Activity {
     public void validLogin(UserModel u, String Username, String Password){
         //Parcelable if you want to send model to the new activity
         if (u.Username.equals(Username) && u.Password.equals(Password)){
-            Intent intent = new Intent(this, MapsActivity.class);
+            Intent intent = new Intent(this, HttpTestActivity.class);
             startActivity(intent);
         }
         else{
