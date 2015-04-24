@@ -32,6 +32,8 @@ import com.example.marco.lift.Utility.URLFormatUtility;
 import com.google.gson.GsonBuilder;
 import com.example.marco.lift.Utility.VolleyQueue;
 
+import static com.example.marco.lift.Utility.EncryptDecrypt.encryptIt;
+
 
 public class DisplayCreateAccount extends ActionBarActivity{
     private UserDataManager dataManager;
@@ -87,7 +89,7 @@ public class DisplayCreateAccount extends ActionBarActivity{
         if((inputPassword.getText().toString()).equals(inputConfirm.getText().toString())) {
             UserModel u = new UserModel();
             u.Username = inputUsername.getText().toString();
-            u.Password = inputPassword.getText().toString();
+            u.Password = encryptIt(inputPassword.getText().toString());
             u.Email = inputEmail.getText().toString();
             u.PreferredGym = inputGym.getText().toString();
             try {
