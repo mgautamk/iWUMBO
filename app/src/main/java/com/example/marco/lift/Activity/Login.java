@@ -44,6 +44,8 @@ import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 
+import static com.example.marco.lift.Utility.EncryptDecrypt.decryptIt;
+
 public class Login extends Activity {
     public LocationModel locate;
     private String LatLong;
@@ -106,8 +108,10 @@ public class Login extends Activity {
 
     public void validLogin(UserModel u, String Username, String Password){
         //Parcelable if you want to send model to the new activity
-        if (u.Username.equals(Username) && u.Password.equals(Password)){
-            Intent intent = new Intent(this, HttpTestActivity.class);
+
+        String EncryptPass = decryptIt(u.Password);
+        if (u.Username.equals(Username) && EncryptPass.equals(Password)){
+            Intent intent = new Intent(this, MapsActivity.class);
             startActivity(intent);
         }
         else{
