@@ -111,7 +111,7 @@ public class Login extends Activity {
 
         String EncryptPass = decryptIt(u.Password);
         if (u.Username.equals(Username) && EncryptPass.equals(Password)){
-            Intent intent = new Intent(this, MapsActivity.class);
+            Intent intent = new Intent(this, HttpTestActivity.class);
             startActivity(intent);
         }
         else{
