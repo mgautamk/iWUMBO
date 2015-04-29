@@ -65,22 +65,6 @@ public class Login extends Activity {
         loginButton = (Button)findViewById(R.id.login);
         LoginResponse = (TextView)findViewById(R.id.LoginResponse);
         LocationResponse = (TextView)findViewById(R.id.LocationResponse);
-/*
-        loginButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                dataManager = new UserDataManager();
-                loginRequestArgs args = new loginRequestArgs();
-               // locate = new LocationModel();
-              //  ReturnLocation location = new ReturnLocation();
-                //location.onConnected(Bundle.EMPTY);
-                //ReturnLocation location = new ReturnLocation();
-                //LatLong = location.onConnected();
-                //args.setUrl(URLFormatUtility.formatApiUrl(inputUsername.getText().toString()));
-                //args.setUrl(URLFormatUtility.formatApiUrl(inputPassword.getText().toString()));
-                //dataManager.execute(args);
-            }
-        });*/
     }
 
 
@@ -132,10 +116,7 @@ public class Login extends Activity {
                     //JSONObject profile = new JSONObject(response);
                     Log.d("OP_SUBMISSION", "success?");
                     //Find way use fromJson with jsonObject
-//                    JsonParser parser = new JsonParser();
-//                    JsonObject obj = parser.parse(response.toString()).getAsJsonObject();
                     Log.d("JSON", response.toString());
-//                    UserModel u = new GsonBuilder().create().fromJson(obj, UserModel.class);
                     Gson gson = new Gson();
                     UserModel model = gson.fromJson(response.toString(), UserModel.class);
                     validLogin(model, Username, Password);
@@ -154,30 +135,5 @@ public class Login extends Activity {
             VolleyQueue.getRequestQueue(getApplicationContext()).add(request);
 
     }
-    /*
-    @Override
-    public void onUserCallback(UserModel model){
-        String Username = model.Username;
-        String Password = model.Password;
-        String inputUser = inputUsername.getText().toString();
-        String inputPass = inputPassword.getText().toString();
-        if ( (inputUser.equals(Username)) &&
-                (inputPass.equals(Password)) )
-        {
-         //   LoginResponse.setText("sad OR Happy face");
-            Intent intent = new Intent(this, MapsActivity.class);
-            startActivity(intent);
-        }
-        else
-        {
-            LoginResponse.setText(Username + ' ' + Password + " : " + inputUser + ' ' + inputPass);
-        }
-     }
-
-    @Override
-    public void onGymCallback(GymSearchModel model){
-        System.out.print("--------------- onGymCallBack function is empty ---------------");
-    }
-    */
 }
 

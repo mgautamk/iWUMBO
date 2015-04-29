@@ -59,21 +59,6 @@ public class DisplayCreateAccount extends ActionBarActivity{
         inputGym = (EditText) findViewById(R.id.Preferred_Gym_input);
         create = (Button) findViewById(R.id.create_button);
         Response = (TextView) findViewById(R.id.Response);
-/*
-        create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dataManager = new UserDataManager();
-                loginRequestArgs args = new loginRequestArgs();
-                if ((inputPassword.getText().toString()).equals((inputConfirm.getText().toString()))) {
-
-                    Response.setText("Passwords match");
-                } else {
-                    Response.setText(inputPassword.getText().toString() + ":" + inputConfirm.getText().toString());
-                }
-            }
-        });
-        */
     }
 
     @Override
