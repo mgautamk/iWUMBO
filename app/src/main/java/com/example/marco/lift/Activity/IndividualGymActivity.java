@@ -1,7 +1,10 @@
 package com.example.marco.lift.Activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -12,18 +15,28 @@ import com.example.marco.lift.R;
  * Created by marco on 4/27/2015.
  */
 
-public class IndividualGymActivity extends ActionBarActivity {
-    String position;
-    String Id;
-    private TextView Position;
-    private TextView TextId;
+public class IndividualGymActivity extends Activity {
+    String PlaceID;
+    String PlaceName;
+    String PlaceAddress;
+    private TextView name;
+    private TextView address;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_gym);
-//        position = getIntent().getExtras().getString("position");
+         Intent i = getIntent();
+        //Log.d("String Passed", getIntent().getStringExtras("dataBundle"));
+//        Position = (TextView)findViewById(R.id.Position);
+        PlaceID = i.getExtras().getString("PlaceID");
+        PlaceName = i.getExtras().getString("Name");
+        PlaceAddress = i.getExtras().getString("PlaceAddress");
+        name.setText(PlaceName);
+        address.setText(PlaceAddress);
+        Log.d("Passed String", getIntent().getExtras().getString("dataBundle"));
+  //      Position.setText(getIntent().getExtras().getString("position"));
 //        Id = getIntent().getExtras().getString("Id");
 //        Position.setText(position);
 //        TextId.setText(Id);

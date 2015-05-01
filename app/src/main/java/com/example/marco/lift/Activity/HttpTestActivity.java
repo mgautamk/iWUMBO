@@ -13,6 +13,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.internal.widget.AdapterViewCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 public class HttpTestActivity extends Activity {
     private String latitude;
@@ -79,9 +81,6 @@ public class HttpTestActivity extends Activity {
             }
         };
 
-        //PlaceAdapter placeAdapter = new PlaceAdapter(HttpTestActivity.this, R.layout.activity_httptestrow, places);
-        //listView = (ListView)findViewById(R.id.httptestlist_listview);
-
 
 
 
@@ -100,15 +99,6 @@ public class HttpTestActivity extends Activity {
         InputSource is = new InputSource(new StringReader(xml));
 
         return builder.parse(is);
-    }
-
-
-    //@Override
-    public void onClick(AdapterViewCompat<?> adapterViewCompat, View view, int i, long l) {
-        String item = adapterViewCompat.getItemAtPosition(i).toString();
-        Intent intent = new Intent(this, IndividualGymActivity.class);
-        intent.putExtra("ID",item);
-        startActivity(intent);
     }
 
 
@@ -224,12 +214,19 @@ public class HttpTestActivity extends Activity {
                             @Override
                             public void onItemClick(AdapterView<?> arg0, View view,
                                                     int position, long id) {
+                                Place place = (Place) listView.getAdapter().getItem(position);
 
+                                String selectedValue = (String) listView.getAdapter().getItem(position).toString();
                                 Intent intent = new Intent(view.getContext(), IndividualGymActivity.class);
-                                String PositionString = Integer.toString(position);
-                                String IdString = Long.toString(id);
-                                intent.putExtra("position",PositionString);
-                                intent.putExtra("Id", IdString);
+                                Bundle dataBundle = new Bundle();
+
+                                intent.putExtra("PlaceID", place.getId());
+                                intent.putExtra("Name", place.getName());
+                                intent.putExtra("Address", place.getVicinity());
+                                Log.d("SELECTED VALUE", place.getName());
+                                //String place = ;
+                                //intent.putExtra("gym", place);
+                                //intent.putExtra("Id", IdString);
                                 startActivity(intent);
                             }
                         }
