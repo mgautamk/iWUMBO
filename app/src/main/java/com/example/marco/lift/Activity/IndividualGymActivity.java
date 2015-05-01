@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.marco.lift.R;
@@ -67,5 +68,10 @@ public class IndividualGymActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sendCreateEvent(View view) {
+        Intent intent = new Intent(this, Create_Event.class);
+        startActivity(intent);
     }
 }

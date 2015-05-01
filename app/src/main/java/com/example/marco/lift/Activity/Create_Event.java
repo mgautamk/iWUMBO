@@ -4,13 +4,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 
 import com.example.marco.lift.R;
 
 public class Create_Event extends ActionBarActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__event);
     }
