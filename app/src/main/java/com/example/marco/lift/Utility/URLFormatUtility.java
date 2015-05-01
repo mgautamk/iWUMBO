@@ -18,4 +18,8 @@ public class URLFormatUtility {
     static public final String loginAccount(String Username){
         return BASE_URL + "user/login?Username=" + Username;
     }
+
+    static public final String submitEvent() {
+        return BASE_URL + "/event/create";
+    }
 }

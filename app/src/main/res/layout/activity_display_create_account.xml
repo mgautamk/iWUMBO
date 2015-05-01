@@ -42,6 +42,7 @@
         android:id="@+id/password_prompt" /> -->
 
     <EditText
+        android:textColor="#ffc0c0c0"
         android:id="@+id/password_input"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -50,6 +51,7 @@
         />
 
     <EditText
+        android:textColor="#ffc0c0c0"
         android:id="@+id/confirm_password_input"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -58,11 +60,13 @@
         />
 
     <TextView
+        android:textColor="#ffc0c0c0"
         android:text="\nOptional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
+        android:textColor="#ffc0c0c0"
         android:id="@+id/Preferred_Gym_input"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -78,7 +82,7 @@
         android:onClick="sendAccount"
         />
     <TextView
-        android:text=" "
+        android:textColor="#ffc0c0c0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Response"/>

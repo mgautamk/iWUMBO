@@ -223,6 +223,7 @@ public class HttpTestActivity extends Activity {
                                 intent.putExtra("PlaceID", place.getId());
                                 intent.putExtra("Name", place.getName());
                                 intent.putExtra("Address", place.getVicinity());
+                                Log.d("SELECTED ADDRESS", place.getVicinity());
                                 Log.d("SELECTED VALUE", place.getName());
                                 //String place = ;
                                 //intent.putExtra("gym", place);

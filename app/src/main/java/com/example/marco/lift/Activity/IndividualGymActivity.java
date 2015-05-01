@@ -19,8 +19,8 @@ public class IndividualGymActivity extends Activity {
     String PlaceID;
     String PlaceName;
     String PlaceAddress;
-    private TextView name;
-    private TextView address;
+    public TextView name;
+    public TextView address;
 
 
     @Override
@@ -32,10 +32,14 @@ public class IndividualGymActivity extends Activity {
 //        Position = (TextView)findViewById(R.id.Position);
         PlaceID = i.getExtras().getString("PlaceID");
         PlaceName = i.getExtras().getString("Name");
-        PlaceAddress = i.getExtras().getString("PlaceAddress");
+        PlaceAddress = i.getExtras().getString("Address");
+        Log.d("Passed String", PlaceName);
+        Log.d("Passed Address", PlaceAddress);
+        name = (TextView)findViewById(R.id.name);
+        address = (TextView)findViewById(R.id.address);
         name.setText(PlaceName);
         address.setText(PlaceAddress);
-        Log.d("Passed String", getIntent().getExtras().getString("dataBundle"));
+
   //      Position.setText(getIntent().getExtras().getString("position"));
 //        Id = getIntent().getExtras().getString("Id");
 //        Position.setText(position);

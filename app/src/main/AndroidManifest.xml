@@ -74,6 +74,10 @@
             android:name=".Activity.IndividualGymActivity"
             android:label="@string/title_activity_individual_gym" >
         </activity>
+        <activity
+            android:name=".Activity.Create_Event"
+            android:label="@string/title_activity_create__event" >
+        </activity>
     </application>
 
 </manifest>

@@ -7,13 +7,38 @@
     android:background="@color/material_blue_grey_900"
     tools:context="com.example.marco.lift.Activity.IndividualGymActivity">
 
-    <TextView android:text="@+id/Position"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="30dip"
+        android:id="@+id/create_event"
+        android:layout_gravity="right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="createEventForm"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView android:id="@+id/name"
+        android:text="stuff"
+        android:textSize="20dip"
+        android:textColor="#ffc0c0c0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/TextId"
+
+    <TextView android:id="@+id/address"
+        android:text="stuff"
+        android:textSize="20dip"
+        android:textColor="#ffc0c0c0"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
