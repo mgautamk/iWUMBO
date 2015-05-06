@@ -8,13 +8,16 @@ import android.content.Intent;
 import android.view.View;
 
 import com.example.marco.lift.R;
+import com.example.marco.lift.lift;
 
 public class Initial_Activity extends ActionBarActivity {
+    private lift application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_);
+        application = lift.getInstance();
     }
 
 

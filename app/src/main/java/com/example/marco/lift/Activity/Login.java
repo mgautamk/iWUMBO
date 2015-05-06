@@ -37,6 +37,7 @@ import com.example.marco.lift.Service.loginRequestArgs;
 //import com.example.marco.lift.Utility.ReturnLocation;
 import com.example.marco.lift.Utility.URLFormatUtility;
 import com.example.marco.lift.Utility.VolleyQueue;
+import com.example.marco.lift.lift;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -95,6 +96,9 @@ public class Login extends Activity {
 
         String EncryptPass = decryptIt(u.Password);
         if (u.Username.equals(Username) && EncryptPass.equals(Password)){
+            Log.d("USERID", String.valueOf(u.UserID));
+            lift.getInstance().setUserid(u.UserID);
+            Log.d("INSTANCE_USERID", String.valueOf(lift.getInstance().getUserid()));
             Intent intent = new Intent(this, HttpTestActivity.class);
             startActivity(intent);
         }
