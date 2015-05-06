@@ -37,6 +37,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import com.example.marco.lift.R;
 import com.example.marco.lift.Activity.IndividualGymActivity;
+import com.example.marco.lift.lift;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -219,7 +220,7 @@ public class HttpTestActivity extends Activity {
                                 String selectedValue = (String) listView.getAdapter().getItem(position).toString();
                                 Intent intent = new Intent(view.getContext(), IndividualGymActivity.class);
                                 Bundle dataBundle = new Bundle();
-
+                                lift.getInstance().setLocationid(place.getId());
                                 intent.putExtra("PlaceID", place.getId());
                                 intent.putExtra("Name", place.getName());
                                 intent.putExtra("Address", place.getVicinity());
