@@ -64,6 +64,7 @@ public class HttpTestActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d("Checking Instance", String.valueOf(lift.getInstance().getUserid()));
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_httptestlist);
