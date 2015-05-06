@@ -1,9 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:background="@color/material_blue_grey_800"
     tools:context="com.example.marco.lift.Activity.Create_Event">
 
@@ -12,23 +13,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Workout!"
-        android:id="@+id/button"
+        android:id="@+id/create_event_btn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp" />
+        android:layout_marginBottom="95dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
 
     <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/datePicker"
+        android:id="@+id/EventDatePicker"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:calendarTextColor="#FFF"
+        android:calendarViewShown="false"/>
 
     <TimePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/timePicker"
+        android:id="@+id/EventTimePicker"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:numbersTextColor="#FFF"/>
 
-</RelativeLayout>
+</LinearLayout>
