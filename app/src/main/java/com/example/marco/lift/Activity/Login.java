@@ -97,8 +97,8 @@ public class Login extends Activity {
         String EncryptPass = decryptIt(u.Password);
         if (u.Username.equals(Username) && EncryptPass.equals(Password)){
             Log.d("USERID", String.valueOf(u.UserID));
-            //lift.getInstance().setUserid(u.UserID);
-            //Log.d("INSTANCE_USERID", String.valueOf(lift.getInstance().getUserid()));
+            lift.getInstance().setUserid(u.UserID);
+            Log.d("INSTANCE_USERID", String.valueOf(lift.getInstance().getUserid()));
             Intent intent = new Intent(this, HttpTestActivity.class);
             startActivity(intent);
         }

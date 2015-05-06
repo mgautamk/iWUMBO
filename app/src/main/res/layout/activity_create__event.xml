@@ -8,18 +8,6 @@
     android:background="@color/material_blue_grey_800"
     tools:context="com.example.marco.lift.Activity.Create_Event">
 
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Workout!"
-        android:id="@+id/create_event_btn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false" />
-
     <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,5 +24,16 @@
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
         android:numbersTextColor="#FFF"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Workout!"
+        android:id="@+id/create_event_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false" />
 
 </LinearLayout>
