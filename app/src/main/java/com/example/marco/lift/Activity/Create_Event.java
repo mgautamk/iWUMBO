@@ -14,13 +14,13 @@ import java.util.Calendar;
 public class Create_Event extends ActionBarActivity {
     final Calendar c = Calendar.getInstance();
 
-    int maxYear = c.get(Calendar.YEAR) - 20; // this year ( 2011 ) - 20 = 1991
+    int maxYear = c.get(Calendar.YEAR)  +  01; // this year ( 2011 ) - 20 = 1991
     int maxMonth = c.get(Calendar.MONTH);
     int maxDay = c.get(Calendar.DAY_OF_MONTH);
 
-    int minYear = 1960;
-    int minMonth = 0; // january
-    int minDay = 25;
+    int minYear = 2015;
+    int minMonth = 01; // january
+    int minDay = 01;
 
     DatePicker EventDatePicker;
 
