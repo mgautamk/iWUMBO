@@ -5,7 +5,7 @@ package com.example.marco.lift.Utility;
  */
 public class URLFormatUtility {
     //EDIT URL FOR THE HTTP CALLS
-    final static private String BASE_URL = "http://cs.sonoma.edu:8025/";
+    final static private String BASE_URL = "http://www.cs.sonoma.edu:8025/";
 
     static public String formatApiUrl(String param){
         String urlString = String.format(BASE_URL, param);

@@ -5,12 +5,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/material_blue_grey_800"
-    android:textColor="#ffc0c0c0"
+    android:background="@color/Charcoal"
+    android:textColor="@color/White"
     tools:context="com.example.marco.lift.Activity.Login">
 
     <EditText
-        android:textColor="#ffc0c0c0"
+        android:textColor="@color/Smoke"
+        android:textColorHint="@color/White"
         android:id="@+id/username_login"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -19,7 +20,8 @@
         />
 
     <EditText
-        android:textColor="#ffc0c0c0"
+        android:textColor="@color/Smoke"
+        android:textColorHint="@color/White"
         android:id="@+id/password_login"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -31,9 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="sendLogin"
-        android:text="Login"/>
+        android:text="Login"
+        android:textColor="@color/Smoke"
+        android:layout_gravity="center_horizontal" />
     <TextView
-        android:textColor="#ffc0c0c0"
+        android:textColor="@color/White"
         android:id="@+id/LoginResponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

@@ -8,23 +8,43 @@
     android:background="@color/material_blue_grey_800"
     tools:context="com.example.marco.lift.Activity.Create_Event">
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
     <DatePicker
+        android:layout_margin="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/EventDatePicker"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:calendarTextColor="#FFF"
-        android:calendarViewShown="false"/>
+        android:calendarViewShown="false"
+        android:scaleX="0.8"
+        android:scaleY="0.8"/>
 
     <TimePicker
+        android:layout_margin="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/EventTimePicker"
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
-        android:numbersTextColor="#FFF"/>
+        android:numbersTextColor="#FFF"
+        android:scaleX="0.8"
+        android:scaleY="0.8"/>
+    </LinearLayout>
+    </ScrollView>
 
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,5 +55,5 @@
         android:layout_marginBottom="95dp"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false" />
-
+    </RelativeLayout>
 </LinearLayout>
