@@ -5,10 +5,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.DatePicker;
 
 import com.example.marco.lift.R;
 
+import java.util.Calendar;
+
 public class Create_Event extends ActionBarActivity {
+    final Calendar c = Calendar.getInstance();
+
+    int maxYear = c.get(Calendar.YEAR) - 20; // this year ( 2011 ) - 20 = 1991
+    int maxMonth = c.get(Calendar.MONTH);
+    int maxDay = c.get(Calendar.DAY_OF_MONTH);
+
+    int minYear = 1960;
+    int minMonth = 0; // january
+    int minDay = 25;
+
+    DatePicker EventDatePicker;
 
 
     @Override
@@ -16,7 +30,35 @@ public class Create_Event extends ActionBarActivity {
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__event);
-    }
+
+        EventDatePicker = (DatePicker) findViewById(R.id.EventDatePicker);
+        EventDatePicker.init(maxYear - 10, maxMonth, maxDay, new DatePicker.OnDateChangedListener() {
+
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                if (year < minYear)
+                    view.updateDate(minYear, minMonth, minDay);
+
+                if (monthOfYear < minMonth && year == minYear)
+                    view.updateDate(minYear, minMonth, minDay);
+
+                if (dayOfMonth < minDay && year == minYear && monthOfYear == minMonth)
+                    view.updateDate(minYear, minMonth, minDay);
+
+
+                if (year > maxYear)
+                    view.updateDate(maxYear, maxMonth, maxDay);
+
+                if (monthOfYear > maxMonth && year == maxYear)
+                    view.updateDate(maxYear, maxMonth, maxDay);
+
+                if (dayOfMonth > maxDay && year == maxYear && monthOfYear == maxMonth)
+                    view.updateDate(maxYear, maxMonth, maxDay);
+            }
+        }); // BirthDateDP.init()
+    } // activity
+
+
 
 
     @Override
@@ -40,4 +82,5 @@ public class Create_Event extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
